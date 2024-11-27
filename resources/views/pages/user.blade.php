@@ -30,17 +30,7 @@
             </div>
 
             <div class="col-span-1 md:col-span-9 p-4">
-                <h2 class="text-xl mb-4 font-semibold">Welcome to the VoteCount System</h2>
-
-                <hr class="border-gray-300 my-4">
-
-                <!-- Buttons -->
-                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">
-                    Primary Button
-                </button>
-                <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-400">
-                    Secondary Button
-                </button>
+                <h2 class="text-xl mb-4 font-semibold">{{ __('User') }}</h2>
             </div>
         </div>
     </main>
