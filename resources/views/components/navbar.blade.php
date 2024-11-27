@@ -6,6 +6,6 @@
         <h1 class="text-2xl italic font-semibold">{{ config('app.name') }}</h1>
     </div>
     <div>
-        {{ $slot }}
+        Un nombre de Usuario
     </div>
 </nav>
