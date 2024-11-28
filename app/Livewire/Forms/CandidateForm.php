@@ -20,7 +20,7 @@ class CandidateForm extends Form
         ];
     }
 
-    public function setPost(Candidate $candidate)
+    public function setCandidate(Candidate $candidate)
     {
         $this->candidate = $candidate;
 
@@ -32,6 +32,8 @@ class CandidateForm extends Form
         $this->validate();
 
         Candidate::create($this->all());
+
+        $this->reset();
     }
 
     public function update()
@@ -41,10 +43,19 @@ class CandidateForm extends Form
         $this->candidate->update(
             $this->all()
         );
+
+        $this->reset();
     }
 
     public function delete()
     {
         $this->candidate->delete();
+
+        $this->reset();
+    }
+
+    public function clear()
+    {
+        $this->reset();
     }
 }

@@ -9,6 +9,6 @@ Route::get('/', function () {
 
 Route::controller(PageController::class)->group(function () {
     Route::get('dashboard', 'dashboard')->name('page.dashboard');
-
     Route::get('user', 'user')->name('page.user');
+    Route::get('candidate', 'candidate')->name('page.candidate');
 });

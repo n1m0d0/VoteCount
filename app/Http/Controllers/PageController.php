@@ -16,4 +16,9 @@ class PageController extends Controller
     {
         return view('pages.user');
     }
+
+    public function candidate(): View
+    {
+        return view('pages.candidate');
+    }
 }
