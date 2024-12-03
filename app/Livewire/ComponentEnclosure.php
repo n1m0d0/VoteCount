@@ -2,12 +2,12 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\CandidateForm;
-use App\Models\Candidate;
+use App\Livewire\Forms\EnclosureForm;
+use App\Models\Enclosure;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ComponentCandidate extends Component
+class ComponentEnclosure extends Component
 {
     use WithPagination;
 
@@ -15,7 +15,7 @@ class ComponentCandidate extends Component
     public $iteration;
     public $search;
 
-    public CandidateForm $form;
+    public EnclosureForm $form;
 
     public $deleteModal;
 
@@ -29,15 +29,14 @@ class ComponentCandidate extends Component
 
     public function render()
     {
-
-        $Query =  candidate::query()
+        $Query =  Enclosure::query()
             ->when($this->search, function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             });
 
-        $candidates = $Query->orderBy('id', 'DESC')->paginate(10);
-        
-        return view('livewire.component-candidate', compact('candidates'));
+        $enclosures = $Query->orderBy('id', 'DESC')->paginate(10);
+
+        return view('livewire.component-enclosure', compact('enclosures'));
     }
 
     public function save()
@@ -55,15 +54,15 @@ class ComponentCandidate extends Component
 
     public function edit($id)
     {
-        $candidate = Candidate::find($id);
-        $this->form->setCandidate($candidate);
+        $enclosure = Enclosure::find($id);
+        $this->form->setEnclosure($enclosure);
         $this->activity = "edit";
     }
 
     public function destroy($id)
     {
-        $candidate = Candidate::find($id);
-        $this->form->setCandidate($candidate);
+        $enclosure = Enclosure::find($id);
+        $this->form->setEnclosure($enclosure);
 
         $this->deleteModal = true;
     }
